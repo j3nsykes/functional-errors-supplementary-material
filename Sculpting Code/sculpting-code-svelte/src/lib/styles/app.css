@@ -1,0 +1,292 @@
+/* ============================================================
+   App-specific additions on top of clay-code.css.
+   Wires the static design to the live SvelteKit app.
+   Every value references a design token.
+   ============================================================ */
+
+/* ---- Capture screen content (image / answer / states) ------ */
+.cc-shot {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+	display: block;
+}
+.cc-answer {
+	width: 100%;
+	max-height: 100%;
+	overflow: auto;
+	padding: var(--cc-space-7);
+	font-family: var(--cc-font-mono);
+	font-size: var(--cc-text-md);
+	line-height: var(--cc-leading-body);
+	color: var(--cc-color-ink);
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+.cc-answer--status {
+	color: var(--cc-color-text-faint);
+}
+.cc-answer--error {
+	color: var(--cc-color-primary);
+}
+.cc-screen__hint {
+	color: var(--cc-color-text-faint);
+	font-size: var(--cc-text-sm);
+	padding: 0 var(--cc-space-7);
+	text-align: center;
+}
+
+/* ---- Response box (image thumbnail + model reply) ---------- */
+.cc-response-body {
+	background: var(--cc-color-surface);
+	height: 250px;
+	overflow: auto;
+	display: block;
+}
+.cc-response-body--empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cc-response {
+	display: flex;
+	gap: var(--cc-space-7);
+	align-items: flex-start;
+	padding: var(--cc-space-7);
+}
+.cc-response__thumb {
+	position: relative;
+	flex-shrink: 0;
+	width: 96px;
+	height: 96px;
+	background: var(--cc-color-screen);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.cc-response__thumb-label {
+	position: absolute;
+	top: 4px;
+	left: 6px;
+	font-size: var(--cc-text-2xs);
+	color: var(--cc-color-text-faint);
+}
+.cc-response__thumb img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+.cc-response__text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--cc-space-4);
+	min-width: 0;
+}
+.cc-response__answer {
+	margin: 0;
+	font-size: var(--cc-text-md);
+	line-height: var(--cc-leading-body);
+	color: var(--cc-color-ink);
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+.cc-response__hint {
+	margin: 0;
+	font-size: var(--cc-text-sm);
+	color: var(--cc-color-text-faint);
+}
+.cc-response__meta {
+	font-size: var(--cc-text-xs);
+	color: var(--cc-color-text-faint);
+}
+.cc-head-right {
+	display: flex;
+	align-items: center;
+	gap: var(--cc-space-5);
+}
+.cc-restart {
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	font-family: var(--cc-font-mono);
+	font-size: var(--cc-text-xs);
+	color: var(--cc-color-text-faint);
+}
+.cc-restart:hover {
+	color: var(--cc-color-primary);
+}
+.cc-restart:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* ---- Concepts list (teaching breakdown) -------------------- */
+.cc-concepts {
+	margin: 0;
+	padding-left: var(--cc-space-7);
+	display: flex;
+	flex-direction: column;
+	gap: var(--cc-space-2);
+}
+.cc-concepts li {
+	font-size: var(--cc-text-sm);
+	line-height: var(--cc-leading-body);
+	color: var(--cc-color-text-muted);
+}
+.cc-concepts__name {
+	color: var(--cc-color-primary);
+	font-weight: var(--cc-weight-bold);
+}
+
+/* ---- Suggestion chips -------------------------------------- */
+.cc-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--cc-space-4);
+}
+.cc-chip {
+	padding: var(--cc-space-3) var(--cc-space-6);
+	border: var(--cc-border-width) solid var(--cc-color-ink);
+	background: var(--cc-color-surface);
+	color: var(--cc-color-ink);
+	font-family: var(--cc-font-mono);
+	font-weight: var(--cc-weight-bold);
+	font-size: var(--cc-text-sm);
+	cursor: pointer;
+}
+.cc-chip--primary {
+	background: var(--cc-color-primary);
+	color: var(--cc-color-on-primary);
+}
+.cc-chip:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* pulsing dot for the "thinking" state */
+.cc-pulse {
+	animation: cc-pulse 1s ease-in-out infinite;
+}
+@keyframes cc-pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.3;
+	}
+}
+
+/* ---- CodeMirror host (fills the editor panel body) --------- */
+.cc-editor__host {
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
+	background: var(--cc-color-surface);
+}
+.cc-editor__host .cm-editor {
+	height: 100%;
+	background: var(--cc-color-surface);
+}
+.cc-editor__host .cm-editor.cm-focused {
+	outline: none;
+}
+.cc-editor__host .cm-scroller {
+	font-family: var(--cc-font-mono);
+	font-size: var(--cc-text-code);
+	line-height: var(--cc-leading-code);
+}
+.cc-editor__host .cm-gutters {
+	background: var(--cc-color-surface);
+	border: 0;
+	color: var(--cc-color-line-number);
+}
+.cc-editor__host .cm-activeLine,
+.cc-editor__host .cm-activeLineGutter {
+	background: transparent;
+}
+.cc-editor__host .cm-content {
+	caret-color: var(--cc-color-ink);
+}
+
+/* ---- Preview iframe (live p5.js canvas) -------------------- */
+.cc-preview .cc-stage {
+	min-height: 440px;
+	padding: var(--cc-space-8);
+}
+.cc-canvas--live {
+	width: 400px;
+	height: 400px;
+	max-width: 100%;
+	padding: 0;
+	overflow: hidden;
+}
+.cc-canvas--live iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+	background: var(--cc-color-surface);
+}
+
+/* ---- Webcam modal overlay --------------------------------- */
+.cc-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--cc-space-8);
+	background: rgba(32, 32, 28, 0.55);
+	overflow: auto;
+}
+.cc-modal-inner {
+	width: 600px;
+	max-width: 100%;
+}
+.cc-viewport video,
+.cc-viewport .cc-shot {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.cc-close {
+	background: none;
+	border: 0;
+	cursor: pointer;
+	font-family: var(--cc-font-mono);
+}
+
+/* ---- Header "how it works" button -------------------------- */
+.cc-help {
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	font-family: var(--cc-font-mono);
+	font-weight: var(--cc-weight-medium);
+	font-size: var(--cc-text-md);
+	color: var(--cc-color-bg);
+}
+.cc-help:hover {
+	color: var(--cc-color-primary);
+}
+
+/* ---- Native control resets to match the flat-mono look ----- */
+button.cc-btn,
+button.cc-inline-btn {
+	font-family: var(--cc-font-mono);
+}
+.cc-field input:focus {
+	outline: none;
+}
+
+/* ---- Disabled state --------------------------------------- */
+.cc-btn:disabled,
+.cc-inline-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

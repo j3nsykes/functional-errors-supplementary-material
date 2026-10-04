@@ -1,0 +1,491 @@
+/* ============================================================
+   Sculpting code — standard responsive layout. A real CSS Grid, not
+   pixel-exact absolute positions with clamp() math: a flexible hero
+   column plus two fixed-width columns (controls, panel). CSS Grid
+   guarantees this never overflows down to the single mobile
+   breakpoint, where everything stacks into one column.
+   Namespaced .sc-* so it never collides with the .cc-* webcam-modal
+   styles.
+   ============================================================ */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sc-page {
+  background: #ffffff;
+  min-height: 100vh;
+}
+.sc-screen {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 50px 64px 64px;
+  color: var(--cc-color-ink);
+  font-family: var(--cc-font-mono);
+}
+
+/* ---- Hero (title row, full width) --------------------------- */
+.sc-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.sc-title {
+  margin: 0;
+  font-family: var(--cc-font-display);
+  font-weight: 700;
+  font-size: 78px;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+.sc-dot {
+  display: inline-block;
+  animation: sc-blink 2s ease-in-out infinite;
+}
+.sc-nav-link {
+  flex-shrink: 0;
+  font-family: var(--cc-font-mono);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--cc-color-ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.sc-nav-link:hover {
+  color: var(--cc-color-primary);
+}
+
+/* Full-width, sits under the title — deliberately NOT part of the grid
+   row below, so it never top-aligns with controls/panel. */
+.sc-lead {
+  margin: 0;
+  max-width: 515px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--cc-color-text-muted);
+}
+
+/* ---- Body: blob (flexible) | controls (340px) | panel (400px) ----
+   The 1fr blob track is what makes this genuinely responsive: CSS Grid
+   always gives the fixed tracks their exact width first, then hands
+   whatever's left to 1fr — even down to 0 — so this can never force
+   the page to overflow/scroll. Sits well below the lead text (see
+   margin-top) for breathing room. */
+.sc-body-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px 400px;
+  column-gap: 32px;
+  align-items: start;
+}
+
+/* Decorative blob: CSS border-radius keyframes (the browser interpolates
+   this natively and smoothly). Caps at 320px but shrinks with its column
+   on narrower desktop widths — a plain, ordinary responsive box, not the
+   whole design scaling. */
+.sc-blob {
+  margin: 40px;
+  /* subtract left+right margin so blob + margin never exceeds its grid
+	   column, preserving the zero-overflow guarantee down to the breakpoint */
+  width: min(320px, calc(100% - 80px));
+  aspect-ratio: 1 / 1;
+  background: var(--cc-color-primary);
+  border-radius: 42% 58% 44% 56% / 56% 44% 56% 44%;
+  animation: sc-blob-morph 6s ease-in-out infinite;
+}
+.sc-blob--mobile,
+.sc-blob--tablet {
+  display: none;
+}
+
+/* ---- Middle column: capture / draw / functions ------------- */
+.sc-controls {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sc-controls__row {
+  display: flex;
+  gap: 10px;
+}
+.sc-btn {
+  flex: 1 1 0;
+  padding: 13px;
+  border: 1.5px solid var(--cc-color-ink);
+  background: #ffffff;
+  font-family: var(--cc-font-mono);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--cc-color-ink);
+  text-align: center;
+  cursor: pointer;
+}
+.sc-btn--capture {
+  background: var(--cc-color-blob-secondary-soft);
+}
+.sc-btn--cta {
+  padding: 15px;
+  border: 1.5px solid var(--cc-color-ink);
+  background: var(--cc-color-primary);
+  font-family: var(--cc-font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: var(--cc-color-on-primary);
+  text-align: center;
+  cursor: pointer;
+}
+.sc-btn:disabled,
+.sc-btn--cta:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Functions-used card ----------------------------------- */
+.sc-functions {
+  flex-shrink: 0;
+  height: 304px;
+  background: #ffffff;
+  border: 1.5px solid var(--cc-color-ink);
+  display: flex;
+  flex-direction: column;
+}
+.sc-functions__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1.5px solid var(--cc-color-ink);
+  font-family: var(--cc-font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--cc-color-ink);
+}
+.sc-functions__head .dim {
+  color: var(--cc-color-text-faint);
+  font-weight: 400;
+}
+.sc-input-thumb {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cc-color-screen);
+  border: 1.5px solid var(--cc-color-border-input);
+  overflow: hidden;
+}
+.sc-input-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sc-input-thumb .ph {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid var(--cc-color-ink);
+}
+.sc-functions__list {
+  padding: 2px 14px;
+  overflow-y: auto;
+}
+.sc-functions__item {
+  padding-block: 9px;
+  border-bottom: 1px solid #ede8e0;
+}
+.sc-functions__item:last-child {
+  border-bottom: none;
+}
+.sc-functions__name {
+  font-family: var(--cc-font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--cc-color-primary);
+}
+.sc-functions__desc {
+  margin-top: 3px;
+  font-family: var(--cc-font-mono);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--cc-color-text-muted);
+}
+.sc-functions__hint {
+  margin: 0;
+  padding: 12px 0;
+  color: var(--cc-color-text-faint);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.sc-functions__error {
+  margin: 0;
+  padding: 12px 0;
+  color: var(--cc-color-primary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---- Right column: Preview / Code panel -------------------- */
+.sc-panel {
+  min-width: 0;
+  height: 428px;
+  background: #ffffff;
+  border: 1.5px solid var(--cc-color-ink);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.sc-panel__head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px 9px 14px;
+  border-bottom: 1.5px solid var(--cc-color-ink);
+}
+.sc-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sc-tab {
+  padding: 7px 14px;
+  border: 1.5px solid transparent;
+  background: #ffffff;
+  font-family: var(--cc-font-mono);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--cc-color-text-faint);
+  cursor: pointer;
+}
+.sc-tab[aria-selected="true"] {
+  background: var(--cc-color-ink);
+  font-weight: 700;
+  color: #ffffff;
+}
+.sc-panel__action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1.5px solid var(--cc-color-ink);
+  background: var(--cc-color-primary);
+  font-family: var(--cc-font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.sc-panel__body {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+/* Preview (canvas) state — scales to fill the panel */
+.sc-stage {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  background: var(--cc-color-screen);
+}
+.sc-canvas {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1.5px solid var(--cc-color-ink);
+}
+.sc-canvas iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+/* Code state (CodeMirror host) — scales to fill the panel */
+.sc-codewrap {
+  height: 100%;
+}
+.sc-editor {
+  height: 100%;
+  overflow: hidden;
+}
+.sc-editor .cm-editor {
+  height: 100%;
+  background: #ffffff;
+}
+.sc-editor .cm-scroller {
+  overflow: auto;
+  font-family: var(--cc-font-mono);
+  font-size: 14px;
+  line-height: 21px;
+}
+.sc-editor .cm-gutters {
+  background: #ffffff;
+  border-right: 0;
+  color: var(--cc-color-line-number);
+}
+.sc-editor .cm-activeLine,
+.sc-editor .cm-activeLineGutter {
+  background: transparent;
+}
+.sc-editor .cm-focused {
+  outline: none;
+}
+
+/* ---- Panel state toggling --------------------------------- */
+.sc-panel[data-active="preview"] .sc-body--code,
+.sc-panel[data-active="code"] .sc-body--preview {
+  display: none;
+}
+
+/* ---- Animations ------------------------------------------- */
+@keyframes sc-blink {
+  0%,
+  45% {
+    color: var(--cc-color-ink);
+  }
+  55%,
+  95% {
+    color: #ffffff;
+  }
+  100% {
+    color: var(--cc-color-ink);
+  }
+}
+/* Genuine shape morph (no scale/rotate — that reads as "pulsing", not
+   morphing). Three clearly distinct silhouettes, smoothly interpolated
+   by the browser since border-radius always tweens correctly. */
+@keyframes sc-blob-morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 44% 56% / 56% 44% 56% 44%;
+  }
+  33% {
+    border-radius: 62% 38% 66% 34% / 38% 65% 35% 62%;
+  }
+  66% {
+    border-radius: 33% 67% 38% 62% / 68% 32% 66% 34%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sc-dot,
+  .sc-blob {
+    animation: none !important;
+  }
+}
+
+/* ---- Tablet and mobile (<1100px): stack into one column ------
+   The fixed 340+400px columns plus padding/gaps need at least 932px
+   before the hero column hits 0 — so the breakpoint has to clear
+   that with real room to spare, or the grid would overflow (or the
+   hero column would be unusably cramped) right above it. 1100px
+   leaves hero a comfortable ~170px minimum right at the switch. */
+@media (max-width: 1100px) {
+  .sc-screen {
+    padding: 24px;
+  }
+  .sc-topbar {
+    margin-bottom: 20px;
+  }
+  .sc-title {
+    font-size: 44px;
+  }
+  .sc-nav-link {
+    font-size: 12px;
+    line-height: 1;
+    margin-top: 6px; /* nudge to align with the title's cap-height */
+  }
+  .sc-nav-arrow {
+    display: none;
+  }
+  .sc-lead {
+    max-width: 460px;
+  }
+  .sc-blob {
+    margin: 0;
+    width: 220px;
+    flex-shrink: 0;
+  }
+  .sc-intro-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .sc-blob--tablet {
+    display: block;
+    width: 160px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+  }
+  .sc-body-grid {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* the desktop rule sets align-items:start, which in
+			a column flex container means "shrink to content width and left-align"
+			— override it or every stacked box collapses to its own content width */
+    gap: 20px;
+  }
+  .sc-controls,
+  .sc-panel {
+    width: 100%;
+  }
+  .sc-panel {
+    height: 520px;
+  }
+  .sc-functions {
+    height: auto;
+    min-height: 260px;
+  }
+  .sc-body-grid > .sc-blob {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .sc-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .sc-nav-link {
+    margin-top: 0;
+  }
+  .sc-intro-row {
+    display: block;
+  }
+  .sc-blob--tablet {
+    display: none;
+  }
+  .sc-blob--mobile {
+    display: block;
+    width: 140px;
+    margin: 4px 0 0;
+  }
+  .sc-body-grid > .sc-blob {
+    display: none;
+  }
+}

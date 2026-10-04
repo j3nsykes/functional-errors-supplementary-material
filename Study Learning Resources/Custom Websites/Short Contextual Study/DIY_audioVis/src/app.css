@@ -1,0 +1,213 @@
+/* ------------------------------------------------------------------ *
+ * Workshop capture — global styles
+ * Soft monochrome: white ground, black ink, Inter throughout. The single
+ * "mono" role is done with uppercase + letter-spacing, not a second family.
+ * ------------------------------------------------------------------ */
+
+:root {
+	--ink: #131313; /* text, primary, confirmed state */
+	--ground: #ffffff; /* page */
+	--surface: #ffffff; /* cards, inputs */
+	--verdigris: #131313; /* primary / confirmed — kept name, now black */
+	--signal: #b0b0b0; /* in-flight, unconfirmed state (grey) */
+	--graphite: #8c8c8c; /* hints, muted text */
+	--line: #e4e4e4; /* hairline borders, idle rules */
+
+	--serif: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--mono: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+	--maxw: 40rem;
+	--radius: 10px;
+	--trace-h: 1.5px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background: var(--ground);
+	color: var(--ink);
+	font-family: var(--sans);
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	margin: 0;
+	min-height: 100dvh;
+	line-height: 1.5;
+}
+
+/* iOS refuses to zoom on focus only when the font is >= 16px. Enforce it. */
+input,
+textarea,
+button,
+select {
+	font-family: inherit;
+	font-size: 16px;
+}
+
+/* Visible focus for keyboard users; suppressed for mouse/touch. */
+:focus-visible {
+	outline: 2px solid var(--ink);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+button {
+	cursor: pointer;
+}
+
+a {
+	color: var(--ink);
+}
+
+/* ---- The trace: a signal rule beneath every field. ---- */
+
+.trace {
+	height: var(--trace-h);
+	width: 100%;
+	border-radius: 2px;
+	background: var(--graphite);
+	opacity: 0.25;
+	transition:
+		background-color 240ms ease,
+		opacity 240ms ease;
+}
+
+.trace[data-state='pending'] {
+	opacity: 1;
+	background-image: linear-gradient(90deg, #d6d6d6 0%, #9a9a9a 45%, #d6d6d6 90%);
+	background-size: 220% 100%;
+	background-color: var(--signal);
+	animation: trace-shimmer 1.4s linear infinite;
+}
+
+.trace[data-state='saved'] {
+	opacity: 1;
+	background: var(--ink);
+}
+
+@keyframes trace-shimmer {
+	from {
+		background-position: 120% 0;
+	}
+	to {
+		background-position: -120% 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.trace {
+		transition: none;
+	}
+	.trace[data-state='pending'] {
+		animation: none;
+		background-image: none;
+		background: var(--signal);
+	}
+}
+
+/* ---- Prose: rendered worksheet markdown (global; styles {@html} output). ---- */
+
+.prose {
+	color: var(--ink);
+	font-size: 1.05rem;
+	line-height: 1.65;
+}
+.prose > :first-child {
+	margin-top: 0;
+}
+.prose h1 {
+	font-family: var(--serif);
+	font-weight: 500;
+	font-size: clamp(2rem, 7vw, 2.6rem);
+	letter-spacing: -0.025em;
+	line-height: 1.08;
+	margin: 0 0 1.25rem;
+}
+.prose h2 {
+	font-family: var(--serif);
+	font-weight: 500;
+	font-size: 1.4rem;
+	letter-spacing: -0.015em;
+	margin: 2.5rem 0 0.75rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--line);
+}
+.prose h3 {
+	font-weight: 600;
+	font-size: 1.1rem;
+	margin: 1.75rem 0 0.5rem;
+}
+.prose p {
+	margin: 0 0 1.1rem;
+}
+.prose a {
+	color: var(--ink);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+}
+.prose a:hover {
+	text-decoration-thickness: 2px;
+}
+.prose ul,
+.prose ol {
+	margin: 0 0 1.1rem;
+	padding-left: 1.4rem;
+}
+.prose li {
+	margin: 0.3rem 0;
+}
+.prose blockquote {
+	margin: 1.5rem 0;
+	padding: 0.85rem 1.1rem;
+	border-left: 3px solid var(--ink);
+	background: #f6f6f6;
+	border-radius: 0 var(--radius) var(--radius) 0;
+}
+.prose blockquote p {
+	margin: 0;
+}
+/* Inline code */
+.prose :not(pre) > code {
+	font-family: var(--mono);
+	font-size: 0.9em;
+	background: #f0f0f0;
+	padding: 0.12em 0.4em;
+	border-radius: 5px;
+}
+/* Fenced code blocks — Shiki sets inline colours; we own the frame. */
+.prose pre {
+	margin: 1.25rem 0 1.5rem;
+	padding: 1rem 1.15rem;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	overflow-x: auto;
+	font-size: 0.9rem;
+	line-height: 1.55;
+	background: var(--surface);
+}
+.prose pre code {
+	font-family: var(--mono);
+}
+.prose img {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius);
+}
+.prose hr {
+	border: 0;
+	border-top: 1px solid var(--line);
+	margin: 2rem 0;
+}
+/* Reserve space for an embedded diagram before it mounts, to avoid layout shift. */
+.prose .embed[data-embed='shield'] {
+	display: block;
+	aspect-ratio: 1554 / 1296;
+}

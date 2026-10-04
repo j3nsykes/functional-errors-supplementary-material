@@ -1,0 +1,367 @@
+/* ============================================================
+   clay_code — Component styles (Iteration 4 "Flat Mono")
+   Requires tokens.css. All values reference design tokens.
+   ============================================================ */
+
+/* ---- Reset-ish --------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+.cc-page {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--cc-color-bg);
+  color: var(--cc-color-ink);
+  font-family: var(--cc-font-mono);
+  overflow-x: hidden;
+}
+.cc-page__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--cc-max-width);
+  margin: 0 auto;
+  padding: 0 var(--cc-gutter) var(--cc-gutter);
+}
+
+/* ---- Decorative blobs -------------------------------------- */
+.cc-blobs { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
+.cc-blob {
+  border-radius: var(--cc-blob-radius);
+  background: var(--cc-color-blob-primary);
+}
+.cc-blob--bg { position: absolute; }
+.cc-blob--primary        { background: var(--cc-color-blob-primary); }
+.cc-blob--secondary      { background: var(--cc-color-blob-secondary); }
+.cc-blob--primary-soft   { background: var(--cc-color-blob-primary-soft); }
+.cc-blob--secondary-soft { background: var(--cc-color-blob-secondary-soft); }
+
+/* ---- Header ------------------------------------------------- */
+.cc-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 32px 0 24px;
+}
+.cc-brand { display: flex; align-items: center; gap: var(--cc-space-4); }
+.cc-logo {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: var(--cc-color-primary);
+  border: 2px solid var(--cc-color-ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.cc-logo__blob {
+  width: 16px; height: 15px;
+  background: var(--cc-color-bg);
+  border-radius: var(--cc-blob-radius-logo);
+}
+.cc-wordmark {
+  font-family: var(--cc-font-display);
+  font-weight: var(--cc-weight-bold);
+  font-size: var(--cc-text-xl);
+  letter-spacing: var(--cc-tracking-tight);
+}
+.cc-cursor {
+  width: 11px; height: 20px; margin-left: 2px;
+  background: var(--cc-color-ink);
+  display: inline-block;
+}
+.cc-nav { display: flex; align-items: center; gap: 28px; }
+.cc-nav a {
+  font-weight: var(--cc-weight-medium);
+  font-size: var(--cc-text-md);
+  color: var(--cc-color-nav);
+  text-decoration: none;
+}
+.cc-status {
+  display: flex; align-items: center; gap: var(--cc-space-3);
+  font-weight: var(--cc-weight-medium);
+  font-size: var(--cc-text-sm);
+  padding: var(--cc-space-3) var(--cc-space-6);
+  border: var(--cc-border-width) solid var(--cc-color-ink);
+}
+.cc-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.cc-dot--primary { background: var(--cc-color-primary); }
+.cc-dot--success { background: var(--cc-color-success); }
+
+/* ---- Workspace layout -------------------------------------- */
+.cc-workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--cc-col-gap);
+  align-items: start;
+}
+/* min-width:0 lets grid columns shrink below their content's intrinsic width
+   (the code editor's long lines would otherwise blow the track out past the
+   viewport on narrow screens). */
+.cc-col { display: flex; flex-direction: column; gap: var(--cc-stack-gap); min-width: 0; }
+
+/* ---- Hero --------------------------------------------------- */
+.cc-hero { display: flex; flex-direction: column; gap: var(--cc-space-6); }
+.cc-hero__eyebrow {
+  font-weight: var(--cc-weight-medium);
+  font-size: var(--cc-text-sm);
+  color: var(--cc-color-text-faint);
+  letter-spacing: var(--cc-tracking-label);
+}
+.cc-hero__title {
+  margin: 0;
+  font-family: var(--cc-font-display);
+  font-weight: var(--cc-weight-bold);
+  font-size: var(--cc-text-display);
+  line-height: var(--cc-leading-display);
+  letter-spacing: var(--cc-tracking-display);
+}
+.cc-hero__title .accent { color: var(--cc-color-primary); }
+.cc-hero__lead {
+  margin: 0; max-width: 560px;
+  font-size: var(--cc-text-lg);
+  line-height: var(--cc-leading-body);
+  color: var(--cc-color-text-muted);
+}
+
+/* ---- Panel (card / editor / preview shell) ------------------ */
+.cc-panel {
+  background: var(--cc-color-surface);
+  border: var(--cc-border-width) solid var(--cc-color-border);
+  display: flex; flex-direction: column;
+}
+.cc-panel__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--cc-space-5) var(--cc-space-7);
+  border-bottom: var(--cc-border-width) solid var(--cc-color-ink);
+}
+.cc-panel__title {
+  display: flex; align-items: baseline; gap: var(--cc-space-4);
+  font-weight: var(--cc-weight-bold);
+  font-size: var(--cc-text-md);
+}
+.cc-panel__title .dim {
+  font-weight: var(--cc-weight-regular);
+  font-size: var(--cc-text-xs);
+  color: var(--cc-color-text-faint);
+}
+
+/* ---- Screen surface (webcam / canvas) ---------------------- */
+.cc-screen {
+  position: relative;
+  background: var(--cc-color-screen);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.cc-screen--capture { height: 330px; }
+.cc-screen__tag {
+  position: absolute; left: var(--cc-space-6); top: var(--cc-space-6);
+  display: flex; align-items: center; gap: var(--cc-space-2);
+  font-weight: var(--cc-weight-medium);
+  font-size: var(--cc-text-xs);
+  color: var(--cc-color-primary);
+}
+.cc-rec {
+  display: inline-flex; align-items: center; gap: var(--cc-space-2);
+  font-weight: var(--cc-weight-medium); font-size: var(--cc-text-xs);
+  color: var(--cc-color-primary);
+}
+.cc-blob--shape {
+  width: 210px; height: 198px;
+  background: var(--cc-color-primary);
+}
+.cc-blob--shape-sm { width: 180px; height: 170px; }
+
+/* ---- Actions (equal-weight input buttons) ------------------ */
+.cc-actions { display: flex; gap: var(--cc-space-5); }
+.cc-btn {
+  flex: 1 1 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--cc-space-3);
+  padding: var(--cc-space-6) var(--cc-space-8);
+  font-family: var(--cc-font-mono);
+  font-weight: var(--cc-weight-bold);
+  font-size: var(--cc-text-lg);
+  border: var(--cc-border-width) solid var(--cc-color-ink);
+  background: var(--cc-color-surface);
+  color: var(--cc-color-ink);
+  cursor: pointer;
+}
+.cc-btn--primary   { background: var(--cc-color-primary);   color: var(--cc-color-on-primary); }
+.cc-btn--secondary { background: var(--cc-color-secondary); color: var(--cc-color-on-secondary); }
+.cc-btn--ink       { background: var(--cc-color-ink);       color: var(--cc-color-on-ink); }
+/* capture(): soft lilac so it's distinct from the white upload() button and sits
+   below the bold-red "Draw my shape" action without reading as disabled. */
+.cc-btn--capture   { background: var(--cc-color-blob-secondary-soft); color: var(--cc-color-ink); }
+.cc-btn--sm { padding: var(--cc-space-3) var(--cc-space-7); font-size: var(--cc-text-sm); flex: 0 0 auto; }
+
+/* ---- Ask panel --------------------------------------------- */
+.cc-ask__head {
+  display: flex; align-items: center; gap: var(--cc-space-3);
+  padding: var(--cc-space-5) var(--cc-space-7);
+  border-bottom: var(--cc-border-width) solid var(--cc-color-ink);
+  font-weight: var(--cc-weight-bold); font-size: var(--cc-text-sm);
+}
+.cc-ask__head .q { color: var(--cc-color-secondary); }
+.cc-ask__body { display: flex; flex-direction: column; gap: var(--cc-space-5); padding: var(--cc-space-7); }
+.cc-ask__row { display: flex; gap: var(--cc-space-4); }
+.cc-field {
+  flex: 1;
+  display: flex; align-items: center; gap: var(--cc-space-3);
+  padding: 13px var(--cc-space-6);
+  border: var(--cc-border-width) solid var(--cc-color-border-input);
+  background: var(--cc-color-surface);
+  font-family: var(--cc-font-mono);
+  font-size: var(--cc-text-md);
+  color: var(--cc-color-ink);
+}
+.cc-field::placeholder { color: var(--cc-color-text-placeholder); }
+.cc-field .prompt { color: var(--cc-color-primary); font-weight: var(--cc-weight-bold); }
+select.cc-field { -webkit-appearance: none; appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--cc-color-text-faint) 50%),
+                    linear-gradient(135deg, var(--cc-color-text-faint) 50%, transparent 50%);
+  background-position: right 16px center, right 11px center;
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
+.cc-inline-btn {
+  display: inline-flex; align-items: center;
+  padding: 13px var(--cc-space-8);
+  font-family: var(--cc-font-mono);
+  font-weight: var(--cc-weight-bold); font-size: var(--cc-text-md);
+  border: var(--cc-border-width) solid var(--cc-color-ink);
+  cursor: pointer;
+}
+
+/* ---- Code editor ------------------------------------------- */
+.cc-editor { height: 390px; }
+.cc-editor .cc-panel__head { padding: 13px var(--cc-space-7); }
+.cc-editor__meta {
+  font-weight: var(--cc-weight-medium); font-size: var(--cc-text-xs);
+  color: var(--cc-color-secondary);
+}
+.cc-code {
+  padding: var(--cc-space-8) var(--cc-space-9);
+  font-family: var(--cc-font-mono);
+  font-size: var(--cc-text-code);
+  line-height: var(--cc-leading-code);
+}
+.cc-code__row { display: flex; gap: 18px; }
+.cc-ln { width: 18px; flex-shrink: 0; text-align: right; color: var(--cc-color-line-number); white-space: nowrap; }
+.cc-code__ln-text { color: var(--cc-syntax-text); }
+.cc-code__ln-text.indent { padding-left: 24px; }
+.tok-kw  { color: var(--cc-syntax-keyword); }
+.tok-fn  { color: var(--cc-syntax-function); }
+.tok-lit { color: var(--cc-syntax-literal); }
+
+/* ---- Preview ----------------------------------------------- */
+.cc-preview .cc-panel__head { padding: var(--cc-space-5) var(--cc-space-6) var(--cc-space-5) var(--cc-space-7); }
+.cc-preview__status { display: flex; align-items: center; gap: var(--cc-space-4); }
+.cc-preview__status .run {
+  display: inline-flex; align-items: center;
+  font-size: var(--cc-text-xs); color: var(--cc-color-success);
+}
+.cc-stage {
+  flex: 1; min-height: 300px;
+  background: var(--cc-color-screen);
+  display: flex; align-items: center; justify-content: center;
+}
+.cc-canvas {
+  width: 300px; height: 300px;
+  background: var(--cc-color-surface);
+  border: var(--cc-border-width) solid var(--cc-color-ink);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ============================================================
+   Webcam modal
+   ============================================================ */
+.cc-modal { position: relative; min-height: 100vh; background: var(--cc-color-bg); overflow: hidden; }
+.cc-modal__head {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: var(--cc-space-5);
+  padding-top: 70px;
+}
+.cc-modal__eyebrow {
+  font-weight: var(--cc-weight-medium); font-size: var(--cc-text-sm);
+  color: var(--cc-color-secondary); letter-spacing: var(--cc-tracking-wide);
+}
+.cc-modal__title {
+  margin: 0; font-family: var(--cc-font-display);
+  font-weight: var(--cc-weight-bold); font-size: var(--cc-text-title);
+  letter-spacing: var(--cc-tracking-tight);
+}
+.cc-modal__title .accent { color: var(--cc-color-primary); }
+
+.cc-flow {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  gap: 40px; padding: 60px var(--cc-gutter);
+}
+.cc-flow__arrow {
+  flex-shrink: 0; font-family: var(--cc-font-display);
+  font-weight: var(--cc-weight-bold); font-size: 34px; color: var(--cc-color-primary);
+}
+.cc-card { width: 600px; max-width: 100%; }
+.cc-step {
+  font-weight: var(--cc-weight-bold); font-size: var(--cc-text-xs);
+  color: var(--cc-color-on-ink);
+  padding: var(--cc-space-1) var(--cc-space-3);
+}
+.cc-step--1 { background: var(--cc-color-ink); }
+.cc-step--2 { background: var(--cc-color-secondary); }
+.cc-close { font-weight: var(--cc-weight-medium); font-size: var(--cc-text-md); color: var(--cc-color-text-faint); }
+
+.cc-viewport {
+  position: relative; height: 360px; margin: var(--cc-space-9);
+  background: var(--cc-color-screen);
+  border: var(--cc-border-width) solid var(--cc-color-border-screen);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.cc-viewport__tag {
+  position: absolute; left: var(--cc-space-6); top: var(--cc-space-6);
+  display: flex; align-items: center; gap: var(--cc-space-2);
+  font-weight: var(--cc-weight-medium); font-size: var(--cc-text-xs);
+  color: var(--cc-color-primary);
+}
+.cc-badge {
+  position: absolute; left: var(--cc-space-6); top: var(--cc-space-6);
+  padding: 5px var(--cc-space-4);
+  background: var(--cc-color-secondary); color: var(--cc-color-on-secondary);
+  font-weight: var(--cc-weight-bold); font-size: var(--cc-text-2xs);
+}
+/* viewfinder corner guides */
+.cc-guide { position: absolute; width: 30px; height: 30px; }
+.cc-guide--bl { left: var(--cc-space-6); bottom: var(--cc-space-6);
+  border-left: var(--cc-border-width) solid var(--cc-color-guide);
+  border-bottom: var(--cc-border-width) solid var(--cc-color-guide); }
+.cc-guide--tr { right: var(--cc-space-6); top: 52px;
+  border-right: var(--cc-border-width) solid var(--cc-color-guide);
+  border-top: var(--cc-border-width) solid var(--cc-color-guide); }
+
+.cc-card__foot { padding: 0 var(--cc-space-9) var(--cc-space-9); }
+.cc-card__foot--split { display: flex; gap: var(--cc-space-5); }
+.cc-card__foot--stack { display: flex; flex-direction: column; gap: var(--cc-space-4); }
+.cc-card__tip { text-align: center; font-size: var(--cc-text-xs); color: var(--cc-color-text-placeholder); }
+.cc-card__foot .cc-btn--grow { flex: 1.4 1 0; }
+.cc-card__foot .cc-btn { padding: var(--cc-space-7); }
+
+/* ---- Responsive fallback ----------------------------------- */
+@media (max-width: 900px) {
+  .cc-workspace { grid-template-columns: 1fr; }
+  .cc-flow { flex-direction: column; }
+  .cc-flow__arrow { transform: rotate(90deg); }
+  .cc-card { width: 100%; }
+}
+
+/* ---- Phone portrait ---------------------------------------- */
+@media (max-width: 640px) {
+  :root {
+    --cc-gutter: 20px;      /* 56px was eating most of a phone screen */
+    --cc-col-gap: 24px;
+  }
+  .cc-header { padding: 20px 0 16px; }
+  .cc-logo { width: 32px; height: 32px; }
+  .cc-wordmark { font-size: var(--cc-text-md); }
+  .cc-cursor { display: none; }
+  .cc-nav { gap: 14px; }
+
+  .cc-hero__title { font-size: 34px; line-height: 40px; }
+  .cc-hero__lead { font-size: var(--cc-text-md); }
+
+  /* Keep the live canvas square as it scales down with the column. */
+  .cc-preview .cc-stage { min-height: 0; padding: var(--cc-space-5); }
+  .cc-canvas--live { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+}

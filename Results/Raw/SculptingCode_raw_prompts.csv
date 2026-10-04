@@ -1,0 +1,77 @@
+id,session_id,prompt,model,created_at
+07e60e8d-f150-4dfc-b0d8-9a2240b3fbc4,1527d9f2-a175-409b-8a2e-87806949971a,add text back,claude-sonnet-5,2026-08-02 16:23:36.009631+00
+080e115c-cbf2-4233-9bf3-59ffce72e53d,e18d865d-b7b4-4524-b635-52d76e17bcda,Can you make the code simpler and easier to understand,claude-sonnet-5,2026-07-27 16:52:50.874063+00
+0b961320-e5eb-48ab-9e50-e4c5eb643c14,138a900a-140e-4f64-b917-035538fcbc4c,"can you add smaller pin dots, randomly placed, in green",claude-sonnet-5,2026-07-27 13:44:53.346418+00
+0c5d4f6b-59e1-41a8-a853-fbc0f7e926f9,392c4719-93fc-45a4-92c1-66c17d94da29,make it waddle,claude-sonnet-5,2026-08-02 11:59:42.688092+00
+0da23e7f-409e-45dd-a29e-7f7b88834bb9,53804d5b-32af-4ad6-a62a-7ef689ac9ba2,can you duplicate,claude-sonnet-5,2026-08-02 11:52:40.059336+00
+1096c3fc-a99d-4735-b763-2d1fcb1f89e0,392c4719-93fc-45a4-92c1-66c17d94da29,make the eyes blink,claude-sonnet-5,2026-08-02 11:51:36.463528+00
+12b892eb-810b-4ff3-95f4-18a1609b62c0,966a4818-ec53-4d11-b384-be5a7d8aede6,Can you use a different function then ellipse for the legs.,claude-sonnet-5,2026-08-02 11:58:35.766956+00
+12d0bbc7-ba6d-4b77-9d31-6570fb885061,1527d9f2-a175-409b-8a2e-87806949971a,make the edges wobble,claude-sonnet-5,2026-08-02 11:51:22.976561+00
+138b236e-79b1-4dcb-b4f3-01fccd51d084,138a900a-140e-4f64-b917-035538fcbc4c,lengthen each star point,claude-sonnet-5,2026-07-27 12:36:16.09145+00
+154e242b-de18-4277-8aa2-baa1540df08f,392c4719-93fc-45a4-92c1-66c17d94da29,make it so the boat moves with an arduino sensor,claude-sonnet-5,2026-08-02 13:33:08.440646+00
+1ceeb46c-e667-44f5-bea6-d3bb5a29daf0,392c4719-93fc-45a4-92c1-66c17d94da29,make the spider go up and down on a web,claude-sonnet-5,2026-08-02 12:43:41.578274+00
+22ea7c84-21b3-4ea7-bb2c-66afe80d8d0c,719843c0-ffbf-45df-aa5f-9fc56bed4f01,"what if I was able to provide crdits to keep you running, I need the information",claude-sonnet-5,2026-08-02 11:56:18.373496+00
+2329d0e6-9087-41b9-b427-c1a87c7ba493,e22446f6-cf7a-4ea8-a72f-6f7863ae5c0c,how do I change saturation?,claude-sonnet-5,2026-08-02 13:14:38.334739+00
+25a74cea-c408-4484-be60-87ffddb0ba21,91ce268d-ed9a-4a58-9560-ef4fdaaf6be0,make it 3D,claude-sonnet-5,2026-08-02 12:28:33.806112+00
+27317109-a75f-4c62-b3dd-782005940cc0,e296d652-c458-4be8-81df-4bc8024b760b,Ride line to follow around the wheels.,claude-sonnet-5,2026-08-02 11:56:22.306543+00
+2aebd233-93d8-4188-a24e-506c89cb2ff5,e296d652-c458-4be8-81df-4bc8024b760b,Use arc() to curve on top of the circle.,claude-sonnet-5,2026-08-02 11:58:56.191551+00
+2b4dab90-3972-429a-94d0-7d40df1bc530,d26b4894-a5fa-43f8-a8a5-d8bf664a4b74,draw 3 of my shapes,claude-sonnet-5,2026-07-26 19:10:16.431298+00
+2b8bdbd1-9f2d-4aa1-93c2-b203f8d3f15d,4e0420c2-1139-40b8-b223-6386b34cda5d,please make the palm a bit smaller,claude-sonnet-5,2026-08-02 12:00:09.667347+00
+2e85a2cb-2d93-4788-85ef-89a002b0a21e,392c4719-93fc-45a4-92c1-66c17d94da29,a checkerboard of multicolours with a circle in the middle,claude-sonnet-5,2026-08-02 13:49:51.308282+00
+38f936a0-301d-41c1-bde2-09c4bcc5fea1,138a900a-140e-4f64-b917-035538fcbc4c,evenly space the dots on the sticky note,claude-sonnet-5,2026-07-27 13:42:35.3684+00
+3a0a86c5-9f5b-47b7-a57c-746fcd5912a4,95c28671-cdfe-4332-9962-f67fb080ee46,move shape along x-axis using arduino,claude-sonnet-5,2026-08-02 13:22:02.508236+00
+3d420724-e035-4b27-bf3a-2e9d7f1a18c9,1527d9f2-a175-409b-8a2e-87806949971a,make it purple,claude-sonnet-5,2026-08-02 12:24:48.726624+00
+44dbb192-2191-42fa-ae1d-b3f5dadf40bf,1527d9f2-a175-409b-8a2e-87806949971a,remove text,claude-sonnet-5,2026-08-02 14:46:57.712274+00
+4aff350f-af10-4534-b9cd-cec6d4971dd9,d9268a72-bc68-4a8a-b237-810355f8e65e,draw me 4 of these shapes,claude-sonnet-5,2026-08-02 11:40:25.985572+00
+4cd9e77e-d66b-4552-aa1b-77af774e4bff,392c4719-93fc-45a4-92c1-66c17d94da29,draw a boat on a shore,claude-sonnet-5,2026-08-02 13:29:23.342825+00
+52dc3b1f-a2e9-491b-8bf5-1204935517ed,392c4719-93fc-45a4-92c1-66c17d94da29,make it cry,claude-sonnet-5,2026-08-02 11:52:13.366839+00
+53274aab-1f18-4c8a-8bc2-6f32c2589a6f,95c28671-cdfe-4332-9962-f67fb080ee46,move shape along x-axis using dial and arduino,claude-sonnet-5,2026-08-02 13:23:43.807797+00
+553590a7-4052-4805-be88-0ef21e22ce2e,6e7730f1-7b41-4c8d-afa7-23031e72b43e,introduce transparency and layer several semi-transparent shapes on top of this,claude-sonnet-5,2026-07-27 11:56:30.563822+00
+560cb9bd-e1e8-4838-96f8-de4c844915d9,d9268a72-bc68-4a8a-b237-810355f8e65e,"thats pretty complicated, can it be easier",claude-sonnet-5,2026-08-02 11:41:07.444386+00
+57282617-b993-4fe0-8eb1-7e36454c5550,e296d652-c458-4be8-81df-4bc8024b760b,Turn left and wheel arch by 90 degrees counter-clockwise,claude-sonnet-5,2026-08-02 12:00:41.216258+00
+5801799c-2998-4565-8076-dd70807fd08b,1527d9f2-a175-409b-8a2e-87806949971a,pay attention to the left hand side of the imahe,claude-sonnet-5,2026-08-02 11:59:42.836581+00
+59b2ebfd-59fa-4c7e-8e03-29de4f0cb773,03c47680-6d39-4bce-991d-795741fcffe6,make them pink,claude-sonnet-5,2026-07-26 09:13:24.255836+00
+5cab4720-159b-4ca8-9d41-87e826d3fff4,719843c0-ffbf-45df-aa5f-9fc56bed4f01,"I want to add a disco in one of the rooms, show the lights strobing through funky colours eminating from a window",claude-sonnet-5,2026-08-02 11:58:37.903489+00
+5daa6aa7-be50-4122-9df1-f7059e9d8a27,91ce268d-ed9a-4a58-9560-ef4fdaaf6be0,please animate the particles falling,claude-sonnet-5,2026-08-02 17:12:55.812975+00
+5e3a3e3b-d1e7-4dac-b29f-b723913b9825,719843c0-ffbf-45df-aa5f-9fc56bed4f01,what model are you? what does the stack look like?,claude-sonnet-5,2026-08-02 11:55:41.520243+00
+60e34f20-8e27-410e-ad02-bfc247ce8de0,966a4818-ec53-4d11-b384-be5a7d8aede6,the blue drawing should be centered in front of the yellow square,claude-sonnet-5,2026-08-02 12:00:01.603594+00
+61d3958e-7e93-41cf-91f3-338ab75296b9,392c4719-93fc-45a4-92c1-66c17d94da29,make it so an arduino sensor changes some of the colour squares,claude-sonnet-5,2026-08-02 13:42:43.081022+00
+629c6caf-0f13-4022-a30f-bb6fd4fd343e,6e7730f1-7b41-4c8d-afa7-23031e72b43e,write a short essay about John Dowland,claude-sonnet-5,2026-07-27 11:57:19.827029+00
+680a9b4f-e87b-4e53-a82a-e812182e88e6,719843c0-ffbf-45df-aa5f-9fc56bed4f01,add an animation to open the door,claude-sonnet-5,2026-08-02 11:57:46.465656+00
+6ae9216b-611f-4071-b40f-7eef9ea42c20,138a900a-140e-4f64-b917-035538fcbc4c,make the lines wiggly,claude-sonnet-5,2026-07-27 13:10:17.90802+00
+6b645d85-0e41-432d-a624-f9b4146d8e05,95c28671-cdfe-4332-9962-f67fb080ee46,make the figure wave,claude-sonnet-5,2026-08-02 12:04:33.580566+00
+6c999ce0-a902-4a53-99fb-dcd77d1a2187,53804d5b-32af-4ad6-a62a-7ef689ac9ba2,can you duplicate,claude-sonnet-5,2026-08-02 11:53:30.661327+00
+6de7605e-77ec-4fbe-9c75-e292cbca8f36,392c4719-93fc-45a4-92c1-66c17d94da29,a coffee cup,claude-sonnet-5,2026-08-02 13:19:29.787979+00
+70345057-32ca-477b-a6d8-6c60edc8707f,392c4719-93fc-45a4-92c1-66c17d94da29,make the legs move,claude-sonnet-5,2026-08-02 12:44:20.804815+00
+72f7ec4c-189d-4b34-841f-30f30f85147d,e22446f6-cf7a-4ea8-a72f-6f7863ae5c0c,can you revert back to the previous code for the sine wave background pulse?,claude-sonnet-5,2026-08-02 13:32:01.372248+00
+7387c012-a8c4-4009-8816-1d2264b23d3f,392c4719-93fc-45a4-92c1-66c17d94da29,MAKE THE eye follow the mouse,claude-sonnet-5,2026-08-02 12:26:52.4624+00
+76c3074b-f6ce-4721-b7d8-5547935b6a54,392c4719-93fc-45a4-92c1-66c17d94da29,"make the colours and sizes of the squares breathe automatically, but are also affected by an arduino sensor",claude-sonnet-5,2026-08-02 13:55:29.855019+00
+78e74e9b-931e-420e-a0c2-0c3ae3af17c4,1527d9f2-a175-409b-8a2e-87806949971a,have eyelashes pointing away from the eye and the almond more pointed,claude-sonnet-5,2026-08-02 12:30:28.510985+00
+7f5339eb-cf33-43a5-afe7-5a9a5e29ed18,91ce268d-ed9a-4a58-9560-ef4fdaaf6be0,can you please animate the waves so that they wave vertically down,claude-sonnet-5,2026-08-02 12:24:34.260143+00
+8b97f571-ff7c-4379-9453-80d86819ef21,966a4818-ec53-4d11-b384-be5a7d8aede6,The head should be attached the body.,claude-sonnet-5,2026-08-02 11:59:26.127422+00
+928a7d6e-01e5-4646-9e74-d1bd34443c7e,392c4719-93fc-45a4-92c1-66c17d94da29,a multicolour checkerboard,claude-sonnet-5,2026-08-02 13:50:21.627153+00
+97ed09c8-28f3-4503-b3c3-556a4743da61,392c4719-93fc-45a4-92c1-66c17d94da29,make the legs walk,claude-sonnet-5,2026-08-02 12:45:01.235771+00
+99c96732-a9fa-42aa-996e-54f2eece00ab,4e0420c2-1139-40b8-b223-6386b34cda5d,please make the first free fingers longer,claude-sonnet-5,2026-08-02 11:59:19.078104+00
+9aca3302-bb5c-44d5-aa61-2a965405e203,392c4719-93fc-45a4-92c1-66c17d94da29,an abstract painting like paul klee,claude-sonnet-5,2026-08-02 13:41:35.694869+00
+9d97b92b-cdd5-4af4-8154-3761676709e0,1527d9f2-a175-409b-8a2e-87806949971a,make the left line more spiral,claude-sonnet-5,2026-08-02 11:58:44.338589+00
+9ea9a700-9575-4600-8ceb-69c5d4aaec7d,4e0420c2-1139-40b8-b223-6386b34cda5d,please only capture my hand and not the background,claude-sonnet-5,2026-08-02 11:58:24.557116+00
+9f5a26b2-8b6b-477b-9b30-28b307380d05,138a900a-140e-4f64-b917-035538fcbc4c,ad dots to the sticky note,claude-sonnet-5,2026-07-27 12:39:55.812395+00
+a32f0f0d-23c7-4799-a16b-a8339fd035bc,966a4818-ec53-4d11-b384-be5a7d8aede6,"treat this object as a dog, with four legs and a distinct head.",claude-sonnet-5,2026-08-02 11:57:34.982772+00
+a3783624-4695-4706-b7db-29ccd7f301d4,392c4719-93fc-45a4-92c1-66c17d94da29,make the drawing more elaborate,claude-sonnet-5,2026-08-02 13:29:46.545063+00
+a5ca71ee-5674-44e4-8dd2-5619e6f02682,e22446f6-cf7a-4ea8-a72f-6f7863ae5c0c,"is there another layer I can create and modulate on the background, separate to the sine pulse?",claude-sonnet-5,2026-08-02 13:27:56.722276+00
+bab5b8f6-8668-4a87-a1b0-787b2b52d1b2,392c4719-93fc-45a4-92c1-66c17d94da29,make it so the size of the cup is mapped to arduino controller,claude-sonnet-5,2026-08-02 13:21:35.60882+00
+c0cd3049-dd89-47e6-97f1-415d729a634e,138a900a-140e-4f64-b917-035538fcbc4c,double the number of spots and make some red,claude-sonnet-5,2026-07-27 13:42:02.33734+00
+c5bb282c-60d0-4fac-a7c0-15715427cc4a,6e7730f1-7b41-4c8d-afa7-23031e72b43e,put the essay in a shape,claude-sonnet-5,2026-07-27 11:58:08.891845+00
+c67f4f05-aa61-4603-bb74-f9726b30c0fb,e22446f6-cf7a-4ea8-a72f-6f7863ae5c0c,"I'd like to smooth the interior navy clay heart, to join the upper sections together",claude-sonnet-5,2026-08-02 12:00:08.732132+00
+c8200d9d-472f-4cce-8b73-c26c743f9768,138a900a-140e-4f64-b917-035538fcbc4c,make the legs of the star stretch long then short,claude-sonnet-5,2026-07-27 13:45:41.610256+00
+cc7db527-54e8-413b-a2a0-02d64e139e18,1527d9f2-a175-409b-8a2e-87806949971a,make it more messy,claude-sonnet-5,2026-08-02 11:48:53.680634+00
+d1184d6b-2857-4874-80f4-8cacb2a7687c,719843c0-ffbf-45df-aa5f-9fc56bed4f01,why is the doorknob in a different location to the captured image?,claude-sonnet-5,2026-08-02 11:55:08.895097+00
+d5c00163-faa2-4c10-a8fc-d53389b1d20c,392c4719-93fc-45a4-92c1-66c17d94da29,a starry nebula,claude-sonnet-5,2026-08-02 13:48:30.263318+00
+e263a7f3-6f07-466c-a0da-43a250174945,95c28671-cdfe-4332-9962-f67fb080ee46,move shape in x-axis,claude-sonnet-5,2026-08-02 13:20:37.282675+00
+e4b97b02-afdb-4d2c-88ce-b74d847d601f,e296d652-c458-4be8-81df-4bc8024b760b,Treat the picture as a bus.,claude-sonnet-5,2026-08-02 11:57:29.758351+00
+e921ca25-1bcf-4471-adf8-47186738741c,e22446f6-cf7a-4ea8-a72f-6f7863ae5c0c,how do i change the background so it gently loops in brightness?,claude-sonnet-5,2026-08-02 13:18:56.960183+00
+f48589eb-3dd9-4d7c-9a12-da404a8fbe94,91ce268d-ed9a-4a58-9560-ef4fdaaf6be0,please slow the rate of the waves movement by half,claude-sonnet-5,2026-08-02 12:25:10.861704+00
+f6ba1775-650e-4a0e-a200-c60b20195c1e,392c4719-93fc-45a4-92c1-66c17d94da29,draw a paul klee inspired abstract painting,claude-sonnet-5,2026-08-02 13:47:55.777837+00
+fad60c38-c78d-4b85-a0c2-66c1e5dd564c,138a900a-140e-4f64-b917-035538fcbc4c,fill the star shape with red,claude-sonnet-5,2026-07-27 12:34:30.214483+00
+fd11d94d-00b1-4097-ba32-b3761754435d,392c4719-93fc-45a4-92c1-66c17d94da29,a boat on a shore,claude-sonnet-5,2026-08-02 13:27:43.883668+00
+ff447e20-6625-4277-886d-8e232dd1f815,392c4719-93fc-45a4-92c1-66c17d94da29,make it so that an arduino controller changes the colours,claude-sonnet-5,2026-08-02 13:50:48.943883+00

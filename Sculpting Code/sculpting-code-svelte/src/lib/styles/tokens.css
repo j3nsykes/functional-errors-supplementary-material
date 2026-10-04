@@ -1,0 +1,101 @@
+/* ============================================================
+   clay_code — Design Tokens  (Iteration 4 "Flat Mono")
+   Framework-agnostic CSS custom properties.
+   Import once, globally (see README for SvelteKit setup).
+   ============================================================ */
+
+:root {
+  /* ---- Surfaces ------------------------------------------------ */
+  --cc-color-bg:            #FEFDFB;  /* page ground (warm near-white) */
+  --cc-color-surface:       #FFFFFF;  /* cards / panels / editor      */
+  --cc-color-screen:        #F3F3F5;  /* camera + canvas "screen"     */
+
+  /* ---- Ink & text --------------------------------------------- */
+  --cc-color-ink:           #20201C;  /* primary text + borders       */
+  --cc-color-text-muted:    #5A554B;  /* body / secondary copy        */
+  --cc-color-text-faint:    #8A8474;  /* comments / captions          */
+  --cc-color-text-placeholder: #A69E8C;
+  --cc-color-nav:           #4A463E;
+  --cc-color-line-number:   #B9B1A0;
+
+  /* ---- Brand -------------------------------------------------- */
+  --cc-color-primary:       #F0503C;  /* tomato — capture / accents   */
+  --cc-color-secondary:     #3B3AD6;  /* indigo — ask / secondary     */
+  --cc-color-on-primary:    #FFFFFF;
+  --cc-color-on-secondary:  #FFFFFF;
+  --cc-color-on-ink:        #FFFFFF;
+  --cc-color-success:       #3B8A5E;  /* running status               */
+
+  /* ---- Decorative blobs --------------------------------------- */
+  --cc-color-blob-primary:        #F0503C;
+  --cc-color-blob-secondary:      #3B3AD6;
+  --cc-color-blob-primary-soft:   #F6C3B6;
+  --cc-color-blob-secondary-soft: #C4C3EE;
+
+  /* ---- Lines & borders ---------------------------------------- */
+  --cc-color-border:        #20201C;  /* container border (on ink)    */
+  --cc-color-border-input:  #D8D6DC;  /* form controls                */
+  --cc-color-border-screen: #E7E7EA;  /* viewport frame               */
+  --cc-color-guide:         #CFCFD4;  /* viewfinder corner guides     */
+
+  /* ---- Code syntax -------------------------------------------- */
+  --cc-syntax-text:     #20201C;
+  --cc-syntax-keyword:  #3B3AD6;  /* function, const …            */
+  --cc-syntax-function: #F0503C;  /* function names               */
+  --cc-syntax-literal:  #B0714A;  /* numbers + string literals    */
+
+  /* ---- Typography --------------------------------------------- */
+  --cc-font-display: "Space Mono", ui-monospace, "Cascadia Code", monospace;
+  --cc-font-mono:    "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  --cc-text-display: 48px;   /* hero headline (Space Mono)   */
+  --cc-text-title:   32px;   /* modal headline (Space Mono)  */
+  --cc-text-xl:      20px;   /* wordmark                     */
+  --cc-text-lg:      15px;
+  --cc-text-md:      14px;
+  --cc-text-sm:      13px;
+  --cc-text-xs:      12px;
+  --cc-text-2xs:     11px;
+  --cc-text-code:  14.5px;
+
+  --cc-leading-display: 56px;
+  --cc-leading-body:    24px;
+  --cc-leading-code:    28px;
+  --cc-leading-tight:   18px;
+
+  --cc-weight-regular: 400;
+  --cc-weight-medium:  500;
+  --cc-weight-bold:    700;
+
+  --cc-tracking-display: -0.02em;
+  --cc-tracking-tight:   -0.01em;
+  --cc-tracking-label:    0.04em;
+  --cc-tracking-wide:     0.06em;
+
+  /* ---- Spacing scale ------------------------------------------ */
+  --cc-space-1:  4px;
+  --cc-space-2:  6px;
+  --cc-space-3:  8px;
+  --cc-space-4: 10px;
+  --cc-space-5: 12px;
+  --cc-space-6: 14px;
+  --cc-space-7: 16px;
+  --cc-space-8: 20px;
+  --cc-space-9: 22px;
+  --cc-space-10: 24px;
+
+  /* ---- Borders & radius --------------------------------------- */
+  --cc-border-width: 1.5px;
+  --cc-radius: 0px;          /* flat, sharp corners            */
+  --cc-radius-pill: 999px;
+
+  /* organic blob silhouettes */
+  --cc-blob-radius:      48% 52% 44% 56% / 55% 48% 52% 45%;
+  --cc-blob-radius-logo: 46% 54% 44% 56% / 55% 48% 52% 45%;
+
+  /* ---- Layout ------------------------------------------------- */
+  --cc-max-width: 1400px;
+  --cc-gutter: 56px;
+  --cc-col-gap: 36px;
+  --cc-stack-gap: 22px;
+}
