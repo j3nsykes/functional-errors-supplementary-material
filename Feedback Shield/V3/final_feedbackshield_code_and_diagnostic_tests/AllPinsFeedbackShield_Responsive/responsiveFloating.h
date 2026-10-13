@@ -8,7 +8,7 @@ class ResponsiveFloatingDetector {
     
   public:
     ResponsiveFloatingDetector(int _pin) : pin(_pin) {
-      // Disable sleep for floating detection - we want to catch all movement
+      // Disable sleep for floating detection to catch all movement
       // Use lower snap multiplier for more sensitivity to noise
       analogInput = new ResponsiveAnalogRead(_pin, false, 0.001);
       
